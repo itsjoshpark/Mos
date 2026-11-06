@@ -1,0 +1,25 @@
+//
+//  Mos.xcconfig
+//  Shared build settings. Attached to the project-level Debug/Release configurations;
+//  target settings in project.pbxproj reference the MOS_* variables below.
+//
+//  The defaults match the upstream (Caldis) setup. To build and sign locally under your own
+//  Apple Developer account, copy Local.xcconfig.example to Local.xcconfig (git-ignored)
+//  and override the variables there.
+//
+
+// Signing team for the Mos app target
+MOS_DEVELOPMENT_TEAM = N7Z52F27XK
+
+// Bundle ID prefixes: <prefix>.Mos (Release), <prefix>.Mos.debug (Debug), <tests prefix>.MosTests
+MOS_BUNDLE_ID_PREFIX = com.caldis
+MOS_TESTS_BUNDLE_ID_PREFIX = me.caldis
+
+// MosTests signing. Upstream signs the test bundle ad hoc.
+MOS_TESTS_DEVELOPMENT_TEAM =
+MOS_TESTS_CODE_SIGN_IDENTITY = -
+
+// Minimum supported macOS (see AGENTS.md)
+MOS_DEPLOYMENT_TARGET = 10.13
+
+#include? "Local.xcconfig"
