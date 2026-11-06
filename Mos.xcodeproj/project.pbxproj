@@ -129,6 +129,7 @@
 		F00A00000000000000000002 /* MosTests/OpenTargetPayloadTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MosTests/OpenTargetPayloadTests.swift; sourceTree = SOURCE_ROOT; };
 		F00A00000000000000000004 /* MosTests/OptionsButtonsLoaderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MosTests/OptionsButtonsLoaderTests.swift; sourceTree = SOURCE_ROOT; };
 		F00A00000000000000000006 /* MosTests/ShortcutExecutorOpenTargetTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MosTests/ShortcutExecutorOpenTargetTests.swift; sourceTree = SOURCE_ROOT; };
+		B15585111326E8D83FAC0845 /* Mos.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Mos.xcconfig; path = Config/Mos.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -231,6 +232,7 @@
 				0BB750952E5F6D8C007C402A /* Mos */,
 				22142DA11E25344E00E4BFBF /* Products */,
 				09EADA3FFF0D79CC3B1FA601 /* MosTests */,
+				B15585111326E8D83FAC0845 /* Mos.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -460,13 +462,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "$(MOS_TESTS_CODE_SIGN_IDENTITY)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = "$(MOS_TESTS_DEVELOPMENT_TEAM)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = me.caldis.MosTests;
+				MACOSX_DEPLOYMENT_TARGET = "$(MOS_DEPLOYMENT_TARGET)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOS_TESTS_BUNDLE_ID_PREFIX).MosTests";
 				PRODUCT_MODULE_NAME = MosTests;
 				PRODUCT_NAME = MosTests;
 				SDKROOT = macosx;
@@ -477,6 +479,7 @@
 		};
 		22142DC31E25344F00E4BFBF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B15585111326E8D83FAC0845 /* Mos.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -511,7 +514,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = N7Z52F27XK;
+				DEVELOPMENT_TEAM = "$(MOS_DEVELOPMENT_TEAM)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -527,7 +530,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(MOS_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -542,6 +545,7 @@
 		};
 		22142DC41E25344F00E4BFBF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B15585111326E8D83FAC0845 /* Mos.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -576,7 +580,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = N7Z52F27XK;
+				DEVELOPMENT_TEAM = "$(MOS_DEVELOPMENT_TEAM)";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = NO;
@@ -591,7 +595,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(MOS_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
@@ -621,7 +625,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = N7Z52F27XK;
+				DEVELOPMENT_TEAM = "$(MOS_DEVELOPMENT_TEAM)";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Mos/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Mos Debug";
@@ -630,11 +634,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(MOS_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caldis.Mos.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOS_BUNDLE_ID_PREFIX).Mos.debug";
 				PRODUCT_NAME = "$(TARGET_NAME) Debug";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
@@ -666,7 +670,7 @@
 				CURRENT_PROJECT_VERSION = 20260820.1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = N7Z52F27XK;
+				DEVELOPMENT_TEAM = "$(MOS_DEVELOPMENT_TEAM)";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = Mos/Info.plist;
@@ -676,10 +680,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = "$(MOS_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.caldis.Mos;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOS_BUNDLE_ID_PREFIX).Mos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
@@ -698,13 +702,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "$(MOS_TESTS_CODE_SIGN_IDENTITY)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = "$(MOS_TESTS_DEVELOPMENT_TEAM)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = me.caldis.MosTests;
+				MACOSX_DEPLOYMENT_TARGET = "$(MOS_DEPLOYMENT_TARGET)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(MOS_TESTS_BUNDLE_ID_PREFIX).MosTests";
 				PRODUCT_MODULE_NAME = MosTests;
 				PRODUCT_NAME = MosTests;
 				SDKROOT = macosx;

@@ -35,3 +35,6 @@ build/*.zip
 pnpm-lock.yaml
 yarn.lock
 bun.lockb
+
+# Local build/signing overrides (see Config/Local.xcconfig.example)
+Config/Local.xcconfig

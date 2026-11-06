@@ -1,0 +1,17 @@
+//
+//  Local.xcconfig.example
+//  Copy to Config/Local.xcconfig (git-ignored) to build and sign under your own Apple Developer account.
+//  Find your team ID with: security find-identity -v -p codesigning (the certificate's OU field).
+//
+
+MOS_DEVELOPMENT_TEAM = YOURTEAMID
+MOS_BUNDLE_ID_PREFIX = com.example
+MOS_TESTS_BUNDLE_ID_PREFIX = com.example
+
+// The hardened-runtime test host only loads a test bundle signed by the same team.
+MOS_TESTS_DEVELOPMENT_TEAM = $(MOS_DEVELOPMENT_TEAM)
+MOS_TESTS_CODE_SIGN_IDENTITY = Apple Development
+
+// Recent Xcode versions can no longer target macOS 10.13. Raising this locally means
+// the compiler will not flag APIs that need availability gates for 10.13; keep using them.
+// MOS_DEPLOYMENT_TARGET = 12.0
